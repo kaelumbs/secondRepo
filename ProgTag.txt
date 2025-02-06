@@ -49,8 +49,121 @@ static string Encrypt(string stateSecrets)
     }
     return gibberish;
 }//Q2.1.12
+//////////////////////////////////////////////////////////////////
+
+ARRAY METHODS
+static int LargestValueArr(int[] arr)
+{
+    if(arr.Length == 0)
+    {
+        WriteLine("Empty Array\nValue returned at 0");
+        return 0;
+    }
+
+    int largestValue = arr[0];
+
+    foreach(int i in arr)
+    {
+        if (i > largestValue)
+        {
+            largestValue = i;
+        }
+    }
+    return largestValue;
+}
+////////////////////////////////////////////////////////////
+static int SmallestValueArr(int[] arr)
+{
+    if (arr.Length == 0)
+    {
+        WriteLine("Empty Array\nValue returned at 0");
+        return 0;
+    }
+
+    int smallestValue = arr[0];
+
+    foreach (int i in arr)
+    {
+        if (i < smallestValue)
+        {
+            smallestValue = i;
+        }
+    }
+
+    return smallestValue;
+}
+///////////////////////////////////////////////////////////
+static bool IsSortedAscendingMTH(int[] arr)
+{
+    if (arr.Length == 0)
+    {
+        WriteLine("Empty Array\nValue returned at false");
+        return false;
+    }
+
+    bool listSorted = true;
+
+    for (int i = 1; i <= (arr.Length - 1); i++)
+    {
+        int a = arr[i];
+        int b = arr[i - 1];
+        if (b > a)
+        {
+            listSorted = false;
+            break;
+        }
+    }
 
 
+    return listSorted;
+}
+//////////////////////////////////////////////////////////////
+static double AvgEveryThirdArr(int[] arr)
+{
+    if (arr.Length == 0)
+    {
+        WriteLine("Empty Array\nValue returned at 0");
+        return 0;
+    }
+
+    double sum = 0;
+    int counter = 0;
+    
+    for (int i = 0; i <= arr.Length; i+=3)
+    {
+        sum += arr[i];
+        counter++;
+    }
+
+    return sum/counter;
+}
+////////////////////////////////////////////////////////////////    
+static double StandardDeviationArr(int[] arr)
+{
+    if (arr.Length == 0)
+    {
+        WriteLine("Empty Array\nValue returned at 0");
+        return 0;
+    }
+
+    double variance = 0, sum1 = 0, sum2 = 0, mean = 0;
+    
+    foreach(int i in arr)
+    {
+        sum1 += i;
+    }
+    mean = sum1 / arr.Length;
+
+    foreach (int i in arr)
+    {
+        sum2 += (i - mean)*(i - mean);
+
+    }
+    variance = sum2 / arr.Length;
+
+
+    return Math.Sqrt(variance);
+}
 
 
 
